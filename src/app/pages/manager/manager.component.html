@@ -1,0 +1,56 @@
+<div class="d-flex container-fluid p-jc-center row ">
+  <p-card header="請選擇會議室進行查詢"
+    class="px-2 row-cols-1"
+    [ngStyle]="{width:'50%',height:'100%'}">
+    <div class="p-col p-card-content">
+      <div class="p-inputgroup">
+        <input type="text"
+          pInputText
+          placeholder="會議室"
+          [(ngModel)]="roomNumber">
+        <button type="button"
+          pButton
+          pRipple
+          icon="pi pi-book"
+          styleClass="p-button-warn"
+          (click)="show()"></button>
+        <button type="button"
+          pButton
+          pRipple
+          icon="pi pi-search"
+          styleClass="p-button-warn"
+          (click)="searchBtn(roomNumber)"></button>
+      </div>
+      <br>
+      <p-table [value]="roomList"
+        dataKey="roomNumber">
+        <ng-template pTemplate="header">
+          <tr>
+            <th>會議室號碼</th>
+            <th>預約人</th>
+            <th>已被預約的日期</th>
+            <th>已被預約的時間</th>
+            <th>
+            </th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body"
+          let-room
+          let-rowIndex="rowIndex">
+          <tr [pSelectableRow]="room"
+            [pSelectableRowIndex]="rowIndex">
+            <td>{{room.roomNumber}}</td>
+            <td>{{room.people}}</td>
+            <td>{{room.reservedDate | date:"yyyy-MM-dd"}}</td>
+            <td>{{room.startTime}} ~ {{room.endTime}}</td>
+            <td>
+              <p-button type="button"
+                icon="pi pi-times"
+                (onClick)="deleteData(room)"></p-button>
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+  </p-card>
+</div>

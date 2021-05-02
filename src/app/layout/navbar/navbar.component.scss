@@ -1,0 +1,16 @@
+
+
+.app-header{
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  background-color: #4C4747;
+  align-items: center;
+  z-index: 100;
+
+  >.mat-flat-button.mat-menu{
+    height: 100%;
+    background-color: #4C4747;
+    color: white;
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "room": {
+    "title": "請選擇要預約的會議室",
+    "number": "會議室號碼",
+    "qty": "可容納人數",
+    "inPurpose": "請填寫會議目的",
+    "people": "預約人",
+    "time": "預約時間",
+    "purpose": "會議目的",
+    "reservation": "預約"
+  },
+  "reservation": {
+    "check": {
+      "select": "請選擇會議室"
+    }
+  }
+}

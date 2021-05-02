@@ -1,0 +1,83 @@
+<div class="d-flex container-fluid p-jc-center row row-cols-2">
+  <p-card header="{{ 'room.title' | translate }}"
+    class="px-2 row-cols-1"
+    [ngStyle]="{width:'50%',height:'100%'}">
+    <div class="p-card-content">
+
+      <p-table [value]="roomList"
+        selectionMode="single"
+        [(selection)]="selectedRoom"
+        dataKey="roomNumber">
+        <ng-template pTemplate="header">
+          <tr>
+            <!-- 可容納人數 -->
+            <th>{{ 'room.number' | translate }}</th>
+            <!-- 會議室號碼 -->
+            <th>{{ 'room.qty' | translate }}</th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body"
+          let-room
+          let-rowIndex="rowIndex">
+          <tr [pSelectableRow]="room"
+            [pSelectableRowIndex]="rowIndex">
+            <td>{{room.roomNumber}}</td>
+            <td>{{room.peopleQty}}</td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+  </p-card>
+  <p-card [ngStyle]="{width:'50%',height:'100%'}"
+    class="px-2 "
+    header="{{ 'room.inPurpose' | translate }}">
+    <div class="p-fluid p-card-content">
+      <div class="p-fluid">
+        <h3>{{ 'room.people' | translate }}</h3>
+        <input type="text"
+          pInputText
+          [(ngModel)]="form.people"
+          [style]="{'width':'50%'}" />
+      </div>
+
+      <div class="p-fluid">
+        <!-- 預約人 -->
+        <h3>{{ 'room.people' | translate }}</h3>
+        <p-calendar [(ngModel)]="form.reservedDate"
+          [minDate]="minDate"
+          [maxDate]="maxDate"
+          [readonlyInput]="true"
+          dateFormat="yy-mm-dd"
+          [style]="{'width':'50%'}">
+
+        </p-calendar>
+      </div>
+      <div class="p-fluid">
+        <!-- 預約時間 -->
+        <h3>{{ 'room.time' | translate }}</h3>
+        <div class="p-formgroup-inline">
+          <p-calendar [(ngModel)]="form.startTime"
+            [timeOnly]="true"
+            class="p-field">
+          </p-calendar>
+          <p-calendar [(ngModel)]="form.endTime"
+            [timeOnly]="true"
+            class="p-field">
+          </p-calendar>
+        </div>
+      </div>
+
+      <div class="p-fluid">
+        <h3>{{ 'room.purpose' | translate }}</h3>
+        <textarea [rows]="10"
+          [cols]="40"
+          pInputTextarea
+          [autoResize]="true"
+          [(ngModel)]="form.purpose"
+          [style]="{'width':'100%'}"></textarea>
+      </div>
+      <p-button label="{{ 'room.reservation' | translate }}"
+        (onClick)="submit()"></p-button>
+    </div>
+  </p-card>
+</div>
