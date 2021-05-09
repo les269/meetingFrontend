@@ -26,9 +26,9 @@ import { DynamicDialogConfig } from 'primeng/dynamicdialog';
 })
 export class SelectDialog {
   key = "";
-  rowData: any[] = [];
-  cols: any[] = [];
-  selectedData: any;
+  rowData: unknown[] = [];
+  cols: unknown[] = [];
+  selectedData: unknown;
   constructor(public ref: DynamicDialogRef, public config: DynamicDialogConfig) { }
 
   ngOnInit() {
@@ -37,7 +37,7 @@ export class SelectDialog {
     this.key = this.config.data.callBackKey;
   }
 
-  selectProduct(data: any) {
+  selectProduct(data: unknown) {
     if (this.config.data.callfunction) {
       this.config.data.callfunction(data);
       this.ref.close();

@@ -1,7 +1,7 @@
 export interface room {
-  handle?: string,
+  handle: string,
   roomHandle?: string,
-  roomNumber?: string,//會議室號碼
+  roomNumber: string,//會議室號碼
   peopleQty?: number,//可容納人數
   availableTimes?: string,//可預約時間
   reservedTime?: string,//已被預約的時間

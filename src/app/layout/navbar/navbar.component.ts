@@ -17,7 +17,7 @@ export class NavbarComponent implements OnInit {
 
   }
 
-  setTitle(evt: any) {
+  setTitle(evt: string) {
     this.title = evt;
   }
 

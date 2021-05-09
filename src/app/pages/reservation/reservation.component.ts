@@ -13,7 +13,7 @@ import { LanguageService } from 'src/app/core/services/language.service';
 export class ReservationComponent implements OnInit {
   roomList: room[] = [];
   selectedRoom!: room;
-  form: room = {};
+  form: room = { handle: '', roomNumber: '' };
   minDate!: Date;
   maxDate!: Date;
   constructor(
@@ -69,7 +69,7 @@ export class ReservationComponent implements OnInit {
     //送出預約
     this.roomApi.addReservation(req)
       .subscribe(() => {
-        this.form = {};
+        this.form = { handle: '', roomNumber: '' };
         this.msgBox.showMessage('預約成功');
       }, (res) => {
         this.msgBox.showError(res.response.message);

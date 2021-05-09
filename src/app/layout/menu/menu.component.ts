@@ -13,7 +13,7 @@ export class MenuComponent implements OnInit {
 
   ngOnInit() { }
 
-  addSetTitle(evt: any) {
+  addSetTitle(evt: string) {
     this.getTitle.emit(evt);
     this.menu.close()
   }

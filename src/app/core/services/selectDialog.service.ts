@@ -10,7 +10,7 @@ export class SelectDialogService {
 
   }
 
-  open(callBackKey: any, cols: any, rowData: any, callfunction: any) {
+  open(callBackKey: string, cols: unknown, rowData: unknown, callfunction: any) {
     this.dialogService.open(SelectDialog, {
       header: '請選擇',
       width: '70%',

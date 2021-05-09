@@ -42,7 +42,7 @@ export class ManagerComponent implements OnInit {
       return this.msgBox.showError('請填寫會議室號碼');
     }
     this.search$(rn)
-      .subscribe((res: any[]) => {
+      .subscribe((res: room[]) => {
         this.roomList = res;
         this.searchRn = rn;
         if (res.length == 0) {
@@ -52,7 +52,7 @@ export class ManagerComponent implements OnInit {
       }, this.msgBox.showErrMsg)
   }
 
-  search$(rn?: string): Observable<room[]> {
+  search$(rn: string): Observable<room[]> {
 
     return this.roomApi.getReservedList(rn)
       .pipe(

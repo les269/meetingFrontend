@@ -1,5 +1,6 @@
 import { ConfirmationService } from 'primeng/api';
 import { Injectable } from "@angular/core";
+import { AjaxResponse } from 'rxjs/ajax';
 
 @Injectable({
   providedIn: 'root'
@@ -7,7 +8,7 @@ import { Injectable } from "@angular/core";
 export class MessageBoxService {
   constructor(private confirmationService: ConfirmationService) { }
 
-  showError(msg: any, accept?: any) {
+  showError(msg: string, accept?: Function | undefined) {
     this.confirmationService.confirm({
       message: msg,
       header: '錯誤',
@@ -17,7 +18,7 @@ export class MessageBoxService {
       accept: accept
     });
   }
-  showMessage(msg: any, accept?: any) {
+  showMessage(msg: string, accept?: Function | undefined) {
     this.confirmationService.confirm({
       message: msg,
       header: '訊息',
@@ -28,7 +29,7 @@ export class MessageBoxService {
     });
   }
 
-  showErrMsg(res: any, accept?: any) {
+  showErrMsg(res: AjaxResponse, accept?: Function | undefined) {
     this.confirmationService.confirm({
       message: res.response.message,
       header: '錯誤',

@@ -1,8 +1,8 @@
 import { NavbarComponent } from './../navbar/navbar.component';
-import { Component, OnInit, ViewChild, OnDestroy, Input } from '@angular/core';
-import { BreakpointObserver } from '@angular/cdk/layout';
+import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Data, Router } from '@angular/router';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-layout',
@@ -11,7 +11,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class LayoutComponent implements OnInit {
   @ViewChild('snav') snav: MatSidenav | undefined;
-  @ViewChild('header') header: any;
+  @ViewChild('header') header!: NavbarComponent;
   @Input() title = '';
   constructor(private route: ActivatedRoute, private router: Router) {
   }
@@ -23,7 +23,7 @@ export class LayoutComponent implements OnInit {
     }, 0)
   }
 
-  getPageTitle(event: any) {
+  getPageTitle(event: string) {
     this.header.setTitle(event);
   }
 }
